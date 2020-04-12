@@ -1,0 +1,24 @@
+{
+  "name": "flickmagnet",
+  "version": "1.0.0",
+  "description": "build a movie list using react",
+  "main": "index.js",
+  // "scripts": {
+  //   "test": // not applicable yet
+  // },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpooch21/FlickMagnet.git"
+  },
+  "keywords": [
+    "movie",
+    "list",
+    "react"
+  ],
+  "author": "Trevor Puccini",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/tpooch21/FlickMagnet/issues"
+  },
+  "homepage": "https://github.com/tpooch21/FlickMagnet#readme"
+}
