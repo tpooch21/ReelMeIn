@@ -6,6 +6,14 @@
   // "scripts": {
   //   "test": // not applicable yet
   // },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
+    "jquery": "^2.2.1",
+    "lodash": "^4.6.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tpooch21/FlickMagnet.git"
