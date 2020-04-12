@@ -4,7 +4,7 @@
   "description": "build a movie list using react",
   "main": "index.js",
   "scripts": {
-    "start":  "babel . --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline -w"
+    "start": "babel . --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline -w"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
@@ -12,7 +12,9 @@
     "lodash": "^4.6.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "growl": ">=1.10.0",
+    "diff": ">=3.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
