@@ -1,4 +1,7 @@
 ## NPM ##
 node_modules
 
+## Compiled files ##
+compiled/
 
+## API Keys ##
