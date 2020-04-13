@@ -19,6 +19,14 @@ class App extends React.Component {
   }
 
   onSubmit(title) {
+    debugger;
+    if (title === '') {
+      this.setState({
+        movies: this.props.movies
+      });
+      return;
+    }
+
     var newMovies = this.state.movies.filter(movie => {
       if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
         return movie;

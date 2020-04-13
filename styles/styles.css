@@ -29,6 +29,10 @@
   width: 40%;
 }
 
+.movie-list h5 {
+  text-align: center;
+}
+
 .movie-list h1 {
   width: 50%;
   text-align: center;
