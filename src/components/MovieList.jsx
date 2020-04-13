@@ -7,7 +7,6 @@ import MovieListEntry from './MovieListEntry.js';
 var MovieList = (props) => (
   // Fill out MovieList body with html and jsx
   <div className="movie-list">
-    <h1>Movie List</h1>
     <ul>
       {props.movies.map(movie => {
         return <MovieListEntry movie={movie} />

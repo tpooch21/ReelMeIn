@@ -4,8 +4,10 @@
 
 var SearchBar = (props) => (
   <div className="search-bar">
-    <input className="search-here" type="text">Search</input>
-    <button className="go-button">Go!</button>
+    <div className="search-here">
+      <input className="type-search" type="text" />
+      <button className="go-button">Go!</button>
+    </div>
   </div>
 );
 

@@ -1,7 +1,6 @@
 // List out movie data
 // Render MovieList to the DOM
-
-import MovieList from './components/MovieList.js';
+import App from './components/App.js';
 
 var movies = [
   {title: 'Mean Girls'},
@@ -12,7 +11,7 @@ var movies = [
 ];
 
 ReactDOM.render(
-  <MovieList movies={movies} />,
+  <App movies={movies} />,
   document.getElementById('app')
 );
 
