@@ -19,15 +19,22 @@
 .movie-list ul {
   width: 50%;
   margin: 20px auto;
-  padding-bottom: 8px;
+  padding: 0;
   border: 3px solid blue;
   border-radius: 5px;
   box-shadow: 5px 5px rgba(102, 102, 102, 0.35)
 }
 
 .movie-list-entry {
-  width: 50%;
-  margin: auto;
+  width: 100%;
+  margin: 0px auto;
   padding: 5px;
+  align-content: center;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.movie-list-entry h5 {
+  text-align: center;
 }
 
