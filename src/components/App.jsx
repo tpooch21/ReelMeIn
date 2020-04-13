@@ -15,6 +15,19 @@ class App extends React.Component {
       movies: this.props.movies
     };
 
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(title) {
+    var newMovies = this.state.movies.filter(movie => {
+      if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+        return movie;
+      }
+    });
+
+    this.setState({
+      movies: newMovies
+    });
   }
 
   // To add onSubmit handler
@@ -25,7 +38,7 @@ class App extends React.Component {
       <div className="app-parent">
         <h1>Movie List</h1>
         <div className="search-component">
-          <SearchBar />
+          <SearchBar onSubmit={this.onSubmit} />
         </div>
         <div className="movie-list-component">
           <MovieList movies={this.state.movies} />
