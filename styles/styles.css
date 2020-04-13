@@ -25,7 +25,7 @@
   box-shadow: 5px 5px rgba(102, 102, 102, 0.35)
 }
 
-.movie-list li {
+.movie-list-entry {
   width: 50%;
   margin: auto;
   padding: 5px;
