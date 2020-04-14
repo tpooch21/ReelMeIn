@@ -44,7 +44,7 @@ class App extends React.Component {
 
     return (
       <div className="app-parent">
-        <h1>Movie List</h1>
+        <h1>FlickMagnet</h1>
         <div className="search-component">
           <SearchBar onSubmit={this.onSubmit} />
         </div>
