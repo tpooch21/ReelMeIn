@@ -2,13 +2,7 @@
 // Render MovieList to the DOM
 import App from './components/App.js';
 
-var movies = [
-  {title: 'Mean Girls'},
-  {title: 'Hackers'},
-  {title: 'The Grey'},
-  {title: 'Sunshine'},
-  {title: 'Ex Machina'},
-];
+var movies = null;
 
 ReactDOM.render(
   <App movies={movies} />,
