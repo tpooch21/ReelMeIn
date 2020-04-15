@@ -5,9 +5,17 @@
 import MovieListEntry from './MovieListEntry.js';
 
 var MovieList = (props) => {
+  if (props.movies === null) {
+    return (
+      <div className="movie-list-empty">
+        <h5>Add a Movie to Get Started!</h5>
+      </div>
+    );
+  }
+
   if (props.movies.length === 0) {
     return (
-      <div className="movie-list">
+      <div className="movie-list-empty">
         <h5>No Movie by That Name Found</h5>
       </div>
     );
@@ -15,11 +23,9 @@ var MovieList = (props) => {
 
   return (
   <div className="movie-list">
-    <ul>
       {props.movies.map(movie => {
           return <MovieListEntry movie={movie} />
        })}
-    </ul>
   </div>
   );
 }
