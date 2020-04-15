@@ -6,6 +6,7 @@
 // ^^ Above functionality will lie in onSearch event handler, which will be passed to SearchBar when it's initialized
 import MovieList from './MovieList.js';
 import SearchBar from './SearchBar.js';
+import MovieAdd from './MovieAdd.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends React.Component {
     };
 
     this.onSubmit = this.onSubmit.bind(this);
+    this.onUserMovieInput = this.onUserMovieInput.bind(this);
   }
 
   onSubmit(title) {
@@ -47,17 +49,17 @@ class App extends React.Component {
       this.setState({
         movies: [userMovie]
       });
+      return;
     }
 
     // If not first addition, add to the list
     this.state.movies.push(userMovie);
 
     this.setState({
-      movies
+      movies: this.state.movies
     });
 
   }
-
 
   render() {
 
@@ -67,6 +69,9 @@ class App extends React.Component {
     return (
       <div className="app-parent">
         <h1>FlickMagnet</h1>
+        <div className="movieAdd-component">
+          <MovieAdd onAdd={this.onUserMovieInput} />
+        </div>
         <div className="search-component">
           <SearchBar onSubmit={this.onSubmit} />
         </div>
