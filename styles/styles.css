@@ -16,6 +16,16 @@ body {
               -12px -12px 22px #282828;
 }
 
+.movie-add {
+  width: 30%;
+  margin: 10px auto;
+}
+
+.movie-add input {
+  margin: 20px 0 0 101px;
+
+}
+
 .search-bar {
   margin: 15px auto 10px auto;
   width: 50%;
