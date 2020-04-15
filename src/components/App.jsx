@@ -38,9 +38,31 @@ class App extends React.Component {
     });
   }
 
-  // To add onSubmit handler
+  // Add addHandler here
+  onUserMovieInput(title) {
+    var userMovie = { title };
+
+    // If first movie addition, set state.movies to array literal
+    if (this.state.movies === null) {
+      this.setState({
+        movies: [userMovie]
+      });
+    }
+
+    // If not first addition, add to the list
+    this.state.movies.push(userMovie);
+
+    this.setState({
+      movies
+    });
+
+  }
+
 
   render() {
+
+    // If first render, movies will be null and MovieList shouldn't be rendered yet
+    var firstRender = this.props.movies === null;
 
     return (
       <div className="app-parent">
@@ -49,7 +71,7 @@ class App extends React.Component {
           <SearchBar onSubmit={this.onSubmit} />
         </div>
         <div className="movie-list-component">
-          <MovieList movies={this.state.movies} />
+           <MovieList movies={this.state.movies} />
         </div>
       </div>
     );
