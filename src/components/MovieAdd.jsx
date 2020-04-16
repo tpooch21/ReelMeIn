@@ -9,7 +9,10 @@
 var MovieAdd = (props) => (
   <div className="movie-add">
     <input className="user-movie" type="text" placeholder="Add a Movie.." />
-    <button className="add-button" onClick={(e) => {props.onAdd(e.target.previousSibling.value)}}>Add!</button>
+    <button className="add-button" onClick={(e) => {
+      props.onAdd(e.target.previousSibling.value);
+      e.target.previousSibling.value = '';
+    }}>Add!</button>
   </div>
 )
 

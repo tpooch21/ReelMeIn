@@ -16,27 +16,33 @@ class App extends React.Component {
       movies: this.props.movies
     };
 
+    // Placeholder that stores most recent movie list whenever a setState changes state of movies
+    this.movieHolder = this.state.movies;
+
     this.onSubmit = this.onSubmit.bind(this);
     this.onUserMovieInput = this.onUserMovieInput.bind(this);
   }
 
   onSubmit(title) {
-    debugger;
+
     if (title === '') {
       this.setState({
-        movies: this.props.movies
+        movies: this.movieHolder
       });
       return;
     }
 
-    var newMovies = this.state.movies.filter(movie => {
+    var searchResults = this.state.movies.filter(movie => {
       if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
         return movie;
       }
     });
 
+    // Update placeholder before state of movies changes
+    this.movieHolder = this.state.movies;
+
     this.setState({
-      movies: newMovies
+      movies: searchResults
     });
   }
 
@@ -46,14 +52,19 @@ class App extends React.Component {
 
     // If first movie addition, set state.movies to array literal
     if (this.state.movies === null) {
+      this.movieHolder = [userMovie];
+
       this.setState({
-        movies: [userMovie]
+        movies: this.movieHolder
       });
       return;
     }
 
     // If not first addition, add to the list
     this.state.movies.push(userMovie);
+
+    // Update placeholder before state of movies changes
+    this.movieHolder = this.state.movies;
 
     this.setState({
       movies: this.state.movies

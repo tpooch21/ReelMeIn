@@ -7,7 +7,10 @@ var SearchBar = (props) => (
   <div className="search-bar">
     <div className="search-here">
       <input className="type-search" type="text" placeholder="Search here"/>
-      <button className="go-button" onClick={(e) => {props.onSubmit(e.target.previousSibling.value)}}>Go!</button>
+      <button className="go-button" onClick={(e) => {
+        props.onSubmit(e.target.previousSibling.value);
+        e.target.previousSibling.value = '';
+        }}>Go!</button>
     </div>
   </div>
 );
