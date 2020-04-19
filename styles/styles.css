@@ -19,23 +19,87 @@ body {
 .movie-add {
   width: 30%;
   margin: 10px auto;
+
 }
 
 .movie-add input {
   margin: 20px 0 0 101px;
+}
 
+input {
+  border-radius: 5px;
+  border: solid 1px blue;
+}
+
+.add-button {
+  color: blue;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #212121, #1c1c1c);
+  box-shadow:  12px 12px 22px #161616,
+  -12px -12px 22px #282828;
+  border: none;
+  margin-left: 4px;
 }
 
 .search-bar {
   margin: 15px auto 10px auto;
-  width: 50%;
+  width: 576px;
+  height: 50px;
   align-content: center;
 }
 
 .search-here {
-  margin: auto;
+  margin-top: 18px;
   align-content: center;
-  width: 30%;
+  width: 40%;
+  float: right;
+}
+
+.go-button {
+  color: blue;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #212121, #1c1c1c);
+  box-shadow:  12px 12px 22px #161616,
+  -12px -12px 22px #282828;
+  margin-left: 4px;
+  border: none;
+}
+
+.list-buttons {
+  float: left;
+  display: inline;
+  width: 40%;
+  height: 50px;
+}
+
+.watchedList-button {
+  float: left;
+  font-size: 20px;
+  display: inline;
+  margin-top: 2px;
+  border: none;
+  color: blue;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #212121, #1c1c1c);
+  box-shadow:  12px 12px 22px #161616,
+  -12px -12px 22px #282828;
+  margin: 5px;
+  height: 100%;
+}
+
+.toWatchList-button {
+  float: left;
+  font-size: 20px;
+  display: inline;
+  margin-top: 2px;
+  border: none;
+  color: blue;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #212121, #1c1c1c);
+  box-shadow:  12px 12px 22px #161616,
+             -12px -12px 22px #282828;
+  margin: 5px;
+  height: 100%;
 }
 
 .movie-list {
@@ -50,7 +114,7 @@ body {
 
 .movie-list-empty {
   height: 50px;
-  margin: 30px auto;
+  margin: 20px auto;
   width: 40%;
   border-radius: 10px;
   background: linear-gradient(145deg, #212121, #1c1c1c);
@@ -112,6 +176,8 @@ body {
   color: white;
   background: blue;
 }
+
+
 
 
 
