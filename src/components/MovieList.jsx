@@ -2,6 +2,9 @@
 // Div class="movie-list"
 // Unordered list, with li elements
 // Iterate over passed in movie data, and create a li element for each
+
+// From movieList state, can determine whether toWatchIsSelected, and pass state down to MovieListEntry too
+
 import MovieListEntry from './MovieListEntry.js';
 
 var MovieList = (props) => {
@@ -24,7 +27,7 @@ var MovieList = (props) => {
   return (
   <div className="movie-list">
       {props.movies.map(movie => {
-          return <MovieListEntry movie={movie} />
+          return <MovieListEntry movie={movie} movieListEntryButton={props.movieListEntryButton}/>
        })}
   </div>
   );

@@ -5,10 +5,14 @@
 // Add a little button to each entry 'watched' that handles click Event onUserWatch in App
 
 
+// If toWatchIsSelected, all buttons should have black background (from state)
+// If not, all should have blue backgrounds
+// <button className={`${props.state}-button`}
+
 var MovieListEntry = (props) => (
   <div className="movie-list-entry">
     <h5>{props.movie.title}</h5>
-    <button className="watched-button">Watched</button>
+    <button className={`${props.movieListEntryButton}-button`}>Watched</button>
   </div>
 );
 

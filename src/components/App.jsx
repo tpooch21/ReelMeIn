@@ -111,7 +111,6 @@ class App extends React.Component {
 
   }
 
-
   // toggleToWatchIsSelected
   //   Changes state of toWatchIsSelected from t to f, or vice versa
   //   Click event handler within newly added WatchButtons component
@@ -119,11 +118,9 @@ class App extends React.Component {
 
   render() {
 
-    // NEW CONDITIONAL RENDER:
-    //  for MovieList component render:
-    //    if toWatchIsSelected, movies = this.state.toWatch
-    //    if not ^, movies = this.state.watched
-    //    Pass state down to movieList as well
+    var movies = this.state.toWatchIsSelected ? this.state.toWatch : this.state.watched;
+    // Determined whether movieListEntry 'watched' button should appear to be selected or not
+    var movieListEntryButton = this.state.toWatchIsSelected ? 'toWatch' : 'watched';
 
     // If first render, movies will be null and MovieList shouldn't be rendered yet
     var firstRender = this.props.movies === null;
@@ -138,7 +135,7 @@ class App extends React.Component {
           <SearchBar onSubmit={this.onSubmit} />
         </div>
         <div className="movie-list-component">
-           <MovieList movies={this.state.movies} />
+           <MovieList movies={movies} movieListEntryButton={movieListEntryButton}/>
         </div>
       </div>
     );
