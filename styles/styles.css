@@ -87,6 +87,20 @@ body {
 
 .movie-list-entry h5 {
   text-align: center;
+  /* float: left; */
+  display: inline;
+  width: 90%;
+}
+
+.watched-button {
+  font-size: 10px;
+  float: right;
+  display: inline;
+  margin-top: 2px;
+  border-radius: 5px;
+  color: white;
+  background: linear-gradient(145deg, #212121, #1c1c1c);
+  /* width: 10%; */
 }
 
 
