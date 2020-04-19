@@ -31,6 +31,7 @@ class App extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onUserMovieInput = this.onUserMovieInput.bind(this);
     this.onUserWatch = this.onUserWatch.bind(this);
+    this.toggleWatchButton = this.toggleWatchButton.bind(this);
   }
 
   onSubmit(title) {
@@ -92,18 +93,35 @@ class App extends React.Component {
 
   }
 
-  // TWO NEW EVENT HANDLERS
+  // Add movies to 'Watched' or 'To Watch' lists when user toggles 'Watched' button
   onUserWatch(movie) {
-    // Lookup movie in toWatch movie list [{title: movie1}, {title: movie2}]
-    this.state.toWatch.forEach((movieToWatch, i) => {
-      if (movieToWatch.title === movie.title) {
-        // When input movie is found in toWatch, remove it
-        this.state.toWatch.splice(i, 1);
-      }
-    });
 
-    // Add it to beginning of watched
-    this.state.watched.unshift(movie);
+    // If selecting a movie on the 'To Watch' list (maybe added by mistake), move it to the 'Watched' list
+    if (this.state.toWatchIsSelected) {
+      // Lookup movie in toWatch movie list [{title: movie1}, {title: movie2}]
+      this.state.toWatch.forEach((movieToWatch, i) => {
+        if (movieToWatch.title === movie.title) {
+          // When input movie is found in toWatch, remove it
+          this.state.toWatch.splice(i, 1);
+        }
+      });
+
+      // Add it to beginning of watched
+      this.state.watched.unshift(movie);
+
+      // If selecting a movie on the 'Watched' list (maybe added by mistake), move it back to the 'To Watch' list
+    } else {
+      this.state.watched.forEach((movieWatched, i) => {
+        if (movieWatched.title === movie.title) {
+          // When input movie is found in toWatch, remove it
+          this.state.watched.splice(i, 1);
+        }
+      });
+
+      // Add it to beginning of watched
+      this.state.toWatch.unshift(movie);
+
+    }
 
     this.setState({
       toWatch: this.state.toWatch,
@@ -112,10 +130,14 @@ class App extends React.Component {
 
   }
 
-  // toggleToWatchIsSelected
-  //   Changes state of toWatchIsSelected from t to f, or vice versa
-  //   Click event handler within newly added WatchButtons component
+  // Change movie list being displayed based on whether 'Watched' or 'To Watch' button is clicked
+  toggleWatchButton() {
+    var watchState = this.state.toWatchIsSelected ? false : true;
 
+    this.setState({
+      toWatchIsSelected: watchState
+    });
+  }
 
   render() {
 
@@ -133,7 +155,7 @@ class App extends React.Component {
           <MovieAdd onAdd={this.onUserMovieInput} />
         </div>
         <div className="search-component">
-          <SearchBar onSubmit={this.onSubmit} />
+          <SearchBar onSubmit={this.onSubmit} watchButton={this.toggleWatchButton}/>
         </div>
         <div className="movie-list-component">
            <MovieList movies={movies} movieListEntryButton={movieListEntryButton} onClick={this.onUserWatch}/>

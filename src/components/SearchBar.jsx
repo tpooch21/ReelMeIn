@@ -15,8 +15,8 @@ var SearchBar = (props) => (
     </div>
 
     <div className="list-buttons">
-      <button className='watchedList-button'>Watched</button>
-      <button className='toWatchList-button'>To Watch</button>
+      <button className='watchedList-button' onClick={props.watchButton}>Watched</button>
+      <button className='toWatchList-button' onClick={props.watchButton}>To Watch</button>
     </div>
 
 
