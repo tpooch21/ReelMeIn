@@ -103,5 +103,15 @@ body {
   /* width: 10%; */
 }
 
+.toWatch-button {
+  font-size: 10px;
+  float: right;
+  display: inline;
+  margin-top: 2px;
+  border-radius: 5px;
+  color: blue;
+  background: linear-gradient(145deg, #212121, #1c1c1c);
+}
+
 
 

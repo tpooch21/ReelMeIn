@@ -8,16 +8,25 @@ import MovieList from './MovieList.js';
 import SearchBar from './SearchBar.js';
 import MovieAdd from './MovieAdd.js';
 
+// UPDATE STATE components
+//  toWatch: movies not yet watched
+//  watched: movies watched
+//  toWatchIsSelected: boolean, tells which state should be rendered to movieList
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      movies: this.props.movies
+      toWatch: this.props.movies,
+      watched: [],
+      toWatchIsSelected: true
     };
 
     // Placeholder that stores most recent movie list whenever a setState changes state of movies
-    this.movieHolder = this.state.movies;
+    this.toWatchHolder = this.state.toWatch;
+    this.watchedHolder = this.state.watched;
 
     this.onSubmit = this.onSubmit.bind(this);
     this.onUserMovieInput = this.onUserMovieInput.bind(this);
@@ -27,52 +36,94 @@ class App extends React.Component {
 
     if (title === '') {
       this.setState({
-        movies: this.movieHolder
+        toWatch: this.toWatchHolder,
+        watched: this.watchedHolder
       });
       return;
     }
 
-    var searchResults = this.state.movies.filter(movie => {
+    // filter both toWatch and watched lists based on search
+    var toWatchResults = this.state.toWatch.filter(movie => {
+      if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+        return movie;
+      }
+    });
+
+    var watchedResults = this.state.toWatch.filter(movie => {
       if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
         return movie;
       }
     });
 
     // Update placeholder before state of movies changes
-    this.movieHolder = this.state.movies;
+    this.toWatchHolder = this.state.toWatch;
+    this.watchedHolder = this.state.watched;
 
     this.setState({
-      movies: searchResults
+      toWatch: toWatchResults,
+      watched: watchedResults
     });
   }
 
-  // Add addHandler here
+  // Handles addition to movieList from user input
   onUserMovieInput(title) {
     var userMovie = { title };
 
     // If first movie addition, set state.movies to array literal
-    if (this.state.movies === null) {
-      this.movieHolder = [userMovie];
+    if (this.state.toWatch === null) {
+      this.toWatchHolder = [userMovie];
 
       this.setState({
-        movies: this.movieHolder
+        toWatch: this.toWatchHolder
       });
       return;
     }
 
     // If not first addition, add to the list
-    this.state.movies.push(userMovie);
+    this.state.toWatch.push(userMovie);
 
     // Update placeholder before state of movies changes
-    this.movieHolder = this.state.movies;
+    this.toWatchHolder = this.state.toWatch;
 
     this.setState({
-      movies: this.state.movies
+      toWatch: this.state.toWatch
     });
 
   }
 
+  // TWO NEW EVENT HANDLERS
+  onUserWatch(movie) {
+    // Lookup movie in toWatch movie list [{title: movie1}, {title: movie2}]
+    this.state.toWatch.forEach((movieToWatch, i) => {
+      if (movieToWatch.title === movie.title) {
+        // When input movie is found in toWatch, remove it
+        this.state.toWatch.splice(i, 1);
+      }
+    });
+
+    // Add it to beginning of watched
+    this.state.watched.unshift(movie);
+
+    this.setState({
+      toWatch: this.state.toWatch,
+      watched: this.state.watched
+    });
+
+  }
+
+
+  // toggleToWatchIsSelected
+  //   Changes state of toWatchIsSelected from t to f, or vice versa
+  //   Click event handler within newly added WatchButtons component
+
+
   render() {
+
+    // NEW CONDITIONAL RENDER:
+    //  for MovieList component render:
+    //    if toWatchIsSelected, movies = this.state.toWatch
+    //    if not ^, movies = this.state.watched
+    //    Pass state down to movieList as well
 
     // If first render, movies will be null and MovieList shouldn't be rendered yet
     var firstRender = this.props.movies === null;
