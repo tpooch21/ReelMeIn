@@ -12,7 +12,7 @@
 var MovieListEntry = (props) => (
   <div className="movie-list-entry">
     <h5>{props.movie.title}</h5>
-    <button className={`${props.movieListEntryButton}-button`}>Watched</button>
+    <button className={`${props.movieListEntryButton}-button`} onClick={() => {props.onClick(props.movie)}}>Watched</button>
   </div>
 );
 

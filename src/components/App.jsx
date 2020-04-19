@@ -30,6 +30,7 @@ class App extends React.Component {
 
     this.onSubmit = this.onSubmit.bind(this);
     this.onUserMovieInput = this.onUserMovieInput.bind(this);
+    this.onUserWatch = this.onUserWatch.bind(this);
   }
 
   onSubmit(title) {
@@ -135,7 +136,7 @@ class App extends React.Component {
           <SearchBar onSubmit={this.onSubmit} />
         </div>
         <div className="movie-list-component">
-           <MovieList movies={movies} movieListEntryButton={movieListEntryButton}/>
+           <MovieList movies={movies} movieListEntryButton={movieListEntryButton} onClick={this.onUserWatch}/>
         </div>
       </div>
     );

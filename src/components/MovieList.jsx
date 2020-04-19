@@ -27,7 +27,7 @@ var MovieList = (props) => {
   return (
   <div className="movie-list">
       {props.movies.map(movie => {
-          return <MovieListEntry movie={movie} movieListEntryButton={props.movieListEntryButton}/>
+          return <MovieListEntry movie={movie} movieListEntryButton={props.movieListEntryButton} onClick={props.onClick}/>
        })}
   </div>
   );
