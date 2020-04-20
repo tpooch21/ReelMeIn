@@ -177,6 +177,10 @@ input {
   background: blue;
 }
 
+.selected {
+  border: solid 2px blue;
+}
+
 
 
 

@@ -44,7 +44,6 @@ class App extends React.Component {
       return;
     }
 
-    debugger;
     // filter both toWatch and watched lists based on search
     var toWatchResults = this.state.toWatch.filter(movie => {
       if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
@@ -153,7 +152,7 @@ class App extends React.Component {
 
     var movies = this.state.toWatchIsSelected ? this.state.toWatch : this.state.watched;
     // Determined whether movieListEntry 'watched' button should appear to be selected or not
-    var movieListEntryButton = this.state.toWatchIsSelected ? 'toWatch' : 'watched';
+    var watchState = this.state.toWatchIsSelected ? 'toWatch' : 'watched';
 
     // If first render, movies will be null and MovieList shouldn't be rendered yet
     var firstRender = this.props.movies === null;
@@ -165,10 +164,10 @@ class App extends React.Component {
           <MovieAdd onAdd={this.onUserMovieInput} />
         </div>
         <div className="search-component">
-          <SearchBar onSubmit={this.onSubmit} watchButton={this.toggleWatchButton}/>
+          <SearchBar onSubmit={this.onSubmit} watchButton={this.toggleWatchButton} state={watchState}/>
         </div>
         <div className="movie-list-component">
-           <MovieList movies={movies} movieListEntryButton={movieListEntryButton} onClick={this.onUserWatch}/>
+           <MovieList movies={movies} movieListEntryButton={watchState} onClick={this.onUserWatch}/>
         </div>
       </div>
     );
