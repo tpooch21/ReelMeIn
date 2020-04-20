@@ -44,6 +44,7 @@ class App extends React.Component {
       return;
     }
 
+    debugger;
     // filter both toWatch and watched lists based on search
     var toWatchResults = this.state.toWatch.filter(movie => {
       if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
@@ -51,11 +52,19 @@ class App extends React.Component {
       }
     });
 
-    var watchedResults = this.state.toWatch.filter(movie => {
+    var watchedResults = this.state.watched.filter(movie => {
       if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
         return movie;
       }
     });
+
+    // If toWatchResults holds the result, show the filtered toWatch List
+    if (toWatchResults.length > 0) {
+      this.state.toWatchIsSelected = true;
+    // If watchedResults holds the result, show the filtered watch list
+    } else if (watchedResults.length > 0) {
+      this.state.toWatchIsSelected = false;
+    }
 
     // Update placeholder before state of movies changes
     this.toWatchHolder = this.state.toWatch;
@@ -63,7 +72,8 @@ class App extends React.Component {
 
     this.setState({
       toWatch: toWatchResults,
-      watched: watchedResults
+      watched: watchedResults,
+      toWatchIsSelected: this.state.toWatchIsSelected
     });
   }
 
