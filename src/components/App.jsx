@@ -20,7 +20,7 @@ class App extends React.Component {
 
     this.state = {
       toWatch: this.props.movies,
-      watched: [],
+      watched: this.props.movies,
       toWatchIsSelected: true
     };
 
@@ -115,21 +115,24 @@ class App extends React.Component {
         }
       });
 
-      // Add it to beginning of watched
-      this.state.watched.unshift(movie);
+      // Add it to beginning of watched (if it's the first addition to watched, set it equal to an array literal)
+      if (!this.state.watched) {
+        this.state.watched = [movie];
+      } else {
+        this.state.watched.unshift(movie);
+      }
 
       // If selecting a movie on the 'Watched' list (maybe added by mistake), move it back to the 'To Watch' list
     } else {
       this.state.watched.forEach((movieWatched, i) => {
         if (movieWatched.title === movie.title) {
-          // When input movie is found in toWatch, remove it
+          // When input movie is found in watched, remove it
           this.state.watched.splice(i, 1);
         }
       });
 
-      // Add it to beginning of watched
+      // Add it to beginning of toWatch
       this.state.toWatch.unshift(movie);
-
     }
 
     this.setState({
@@ -153,13 +156,13 @@ class App extends React.Component {
     var movies = this.state.toWatchIsSelected ? this.state.toWatch : this.state.watched;
     // Determined whether movieListEntry 'watched' button should appear to be selected or not
     var watchState = this.state.toWatchIsSelected ? 'toWatch' : 'watched';
-
     // If first render, movies will be null and MovieList shouldn't be rendered yet
     var firstRender = this.props.movies === null;
 
     return (
       <div className="app-parent">
         <h1>FlickMagnet</h1>
+        <img className="film-strip" src="https://pngimg.com/uploads/filmstrip/filmstrip_PNG71.png"/>
         <div className="movieAdd-component">
           <MovieAdd onAdd={this.onUserMovieInput} />
         </div>
@@ -176,3 +179,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+

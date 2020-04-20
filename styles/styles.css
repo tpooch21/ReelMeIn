@@ -6,14 +6,19 @@ body {
   text-align: center;
   margin: auto;
   width: 30%;
-  /* border: 1px solid black; */
   background: linear-gradient(145deg, #212121, #1c1c1c);
   color: #fff;
   text-shadow: 2px 2px blue;
-  /* box-shadow: 5px 5px rgba(25, 62, 184, 0.35); */
   border: solid 1px blue;
   box-shadow:  12px 12px 22px #161616,
   -12px -12px 22px #282828;
+}
+
+.film-strip {
+  width: 30%;
+  height: 50px;
+  margin: 0px 504px;
+
 }
 
 .movie-add {
