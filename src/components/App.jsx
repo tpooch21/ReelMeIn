@@ -14,6 +14,15 @@ import MovieAdd from './MovieAdd.js';
 //  toWatchIsSelected: boolean, tells which state should be rendered to movieList
 
 
+// MOVIE INFO
+//  Add function in separate file to communicate with database
+//  Pass it through as prop to App
+//  Consider making movieListEntry a stateful class component
+//  Clicking on title wouldn't have to change any state within app
+//  API should be contacted as soon as Movie is added to list, but data shouldn't be displayed until after title is clicked
+//  Pass database communicating function as prop to MovieAdd
+//  Each movieListEntry should have access to its own data
+
 class App extends React.Component {
   constructor(props) {
     super(props);
