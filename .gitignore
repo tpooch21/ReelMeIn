@@ -5,3 +5,4 @@ node_modules
 compiled/
 
 ## API Keys ##
+config.js

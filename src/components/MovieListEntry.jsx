@@ -49,7 +49,7 @@ class MovieListEntry extends React.Component {
         </div>
         <div className="movie-info">
           {this.state.isSelected &&
-            <MovieListInfo movieInfo={this.props.movie} click={this.props.onClick}/>
+            <MovieListInfo movieInfo={this.props.movie} click={this.props.onClick} movieButton={this.props.movieListEntryButton}/>
           }
         </div>
       </div>

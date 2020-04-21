@@ -14,13 +14,13 @@
 var MovieListInfo = (props) => (
   <div className="movie-list-info">
     <div className="info-pieces">
-      <span><b>Year: </b></span>
-      <span><b>Runtime: </b></span>
-      <span><b>Metascore: </b></span>
-      <span><b>imdbRating: </b></span>
-      <span><b>Watched: </b><button className=""></button></span>
+      <span><b>Year: </b></span><br></br>
+      <span><b>Runtime: </b></span><br></br>
+      <span><b>Metascore: </b></span><br></br>
+      <span><b>imdbRating: </b></span><br></br>
+      <span><b>Watched: </b><button className={`${props.movieButton}-button`} onClick={() => {props.click(props.movieInfo)}}></button></span>
     </div>
-    <img src={props.movieInfo.image}></img>
+    <img className="movie-image" src="https://doyouremember.com/wp-content/uploads/2019/07/forrest-gump.jpg"></img>
   </div>
 );
 

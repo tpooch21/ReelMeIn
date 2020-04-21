@@ -18,13 +18,19 @@ body {
   width: 30%;
   height: 50px;
   margin: 0px 504px;
+}
 
+.TMDB-attribute {
+  position: absolute;
+  align-content: bottom;
+  height: 50px;
+  bottom: 20px;
+  left: 15px;
 }
 
 .movie-add {
   width: 30%;
   margin: 10px auto;
-
 }
 
 .movie-add input {
@@ -161,25 +167,49 @@ input {
   width: 90%;
 }
 
-.toWatch-button {
-  font-size: 10px;
+.movie-list-info {
+  margin-top: 10px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  height: 150px;
+}
+
+.movie-info span {
+  margin: 10px 10px;
+}
+
+.info-pieces {
+  float: left;
+  display: inline;
+}
+
+.movie-image {
+  width: 30%;
+  height: 121px;
+  border: 1px solid white;
+  border-radius: 2px;
   float: right;
   display: inline;
-  margin-top: 2px;
-  border-radius: 5px;
+  margin-top: 11px;
+  margin-right: 11px;
+}
+
+.toWatch-button {
+  border: 1px solid white;
+  border-radius: 50%;
   color: white;
   background: linear-gradient(145deg, #212121, #1c1c1c);
-  /* width: 10%; */
+  height: 15px;
+  width: 15px;
 }
 
 .watched-button {
-  font-size: 10px;
-  float: right;
-  display: inline;
-  margin-top: 2px;
-  border-radius: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
   color: white;
   background: blue;
+  height: 15px;
+  width: 15px;
 }
 
 .selected {
