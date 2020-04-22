@@ -7,6 +7,7 @@
 import MovieList from './MovieList.js';
 import SearchBar from './SearchBar.js';
 import MovieAdd from './MovieAdd.js';
+import SearchMovieDB from '../data/searchMovieDB.js';
 
 // UPDATE STATE components
 //  toWatch: movies not yet watched
@@ -85,6 +86,11 @@ class App extends React.Component {
     });
   }
 
+
+  // Within onUserMovieInput, we can make a call to a new function, getMovieData
+  // getMovieData will file through returnObj.results, which will have an array of results
+  // Iterate over results and select the movie with the highest popularity, and return
+
   // Handles addition to movieList from user input
   onUserMovieInput(title) {
     var userMovie = { title };
@@ -108,7 +114,6 @@ class App extends React.Component {
     this.setState({
       toWatch: this.state.toWatch
     });
-
   }
 
   // Add movies to 'Watched' or 'To Watch' lists when user toggles 'Watched' button

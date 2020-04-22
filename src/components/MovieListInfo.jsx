@@ -11,6 +11,8 @@
 * Watched toggle
 */
 
+const imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
+
 var MovieListInfo = (props) => (
   <div className="movie-list-info">
     <div className="info-pieces">
