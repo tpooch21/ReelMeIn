@@ -8,10 +8,12 @@ import API_KEY from './config.js';
 const baseUrl = `https://api.themoviedb.org/3/`;
 
 var searchMovieDB = (keyword, successCB, errorCB = null) => {
+  console.log('Type of keyword => ', typeof keyword);
   $.ajax({
     type: 'GET',
     url: `${baseUrl}search/movie?api_key=${API_KEY}&query=${keyword}`,
     success: (data) => {
+      console.log('Logging data from db => ', data);
       successCB(data);
     },
     error: (err) => {

@@ -44,6 +44,14 @@ class App extends React.Component {
     this.toggleWatchButton = this.toggleWatchButton.bind(this);
   }
 
+  componentDidMount() {
+    SearchMovieDB("Titanic", (data) => {
+      console.log(data);
+    });
+  }
+
+
+
   onSubmit(title) {
 
     if (title === '') {
@@ -86,34 +94,33 @@ class App extends React.Component {
     });
   }
 
-
-  // Within onUserMovieInput, we can make a call to a new function, getMovieData
-  // getMovieData will file through returnObj.results, which will have an array of results
-  // Iterate over results and select the movie with the highest popularity, and return
-
   // Handles addition to movieList from user input
   onUserMovieInput(title) {
-    var userMovie = { title };
 
-    // If first movie addition, set state.movies to array literal
-    if (this.state.toWatch === null) {
-      this.toWatchHolder = [userMovie];
+    SearchMovieDB(title, (data) => {
+      console.log('Checking for data => ', data);
+      var results = data.results;
+      // First result has highest popularity rating
+      var movieChoice = results[0];
+
+      if (this.state.toWatch === null) {
+        this.toWatchHolder = [movieChoice];
+        this.setState({
+          toWatch: this.toWatchHolder
+        });
+        return;
+      }
+
+      this.state.toWatch.push(movieChoice);
+
+      this.toWatchHolder = this.state.toWatch;
 
       this.setState({
-        toWatch: this.toWatchHolder
+        toWatch: this.state.toWatch
       });
-      return;
-    }
 
-    // If not first addition, add to the list
-    this.state.toWatch.push(userMovie);
-
-    // Update placeholder before state of movies changes
-    this.toWatchHolder = this.state.toWatch;
-
-    this.setState({
-      toWatch: this.state.toWatch
     });
+
   }
 
   // Add movies to 'Watched' or 'To Watch' lists when user toggles 'Watched' button
