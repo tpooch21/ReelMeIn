@@ -45,9 +45,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    SearchMovieDB("Titanic", (data) => {
-      console.log(data);
-    });
+
   }
 
 
@@ -69,11 +67,15 @@ class App extends React.Component {
       }
     });
 
-    var watchedResults = this.state.watched.filter(movie => {
-      if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
-        return movie;
-      }
-    });
+    if (this.state.watched === null) {
+      var watchedResults = [];
+    } else {
+      var watchedResults = this.state.watched.filter(movie => {
+        if (movie.title.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+          return movie;
+        }
+      });
+    }
 
     // If toWatchResults holds the result, show the filtered toWatch List
     if (toWatchResults.length > 0) {

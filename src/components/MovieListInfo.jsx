@@ -19,7 +19,7 @@ var MovieListInfo = (props) => (
       <span><b>Year: </b>{props.movieInfo.release_date.slice(0, 4)}</span><br></br>
       <span><b>Runtime: </b></span><br></br>
       <span><b>Popularity: </b>{props.movieInfo.popularity}</span><br></br>
-      <span><b>imdbRating: </b></span><br></br>
+      <span><b>imdbRating: </b>{props.movieInfo.vote_average}</span><br></br>
       <span><b>Watched: </b><button className={`${props.movieButton}-button`} onClick={() => {props.click(props.movieInfo)}}></button></span>
     </div>
     <img className="movie-image" src={`https://image.tmdb.org/t/p/w500${props.movieInfo.poster_path}`}/>
